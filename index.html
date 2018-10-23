@@ -3,7 +3,7 @@
 <html lang="en-US">
 
 <head>
-<title>Critially endangered animals of China</title>
+<title>Critically endangered animals of North America</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="author" content="Einar Kjellback" />
 <meta name="charset" content="UTF-8" />
@@ -11,26 +11,70 @@
 <meta name="keywords" content="endangered, animals, China" />
 
 <style>
+.text,.title {
+    width: 70vw;
+    text-align: center;
+    margin: auto;
+}
 </style>
 
 <script>
-function setTargetToBlank() {
-    var links = document.getElementByTagName("a");
-    for (var i = 0; a < links.length; i++) {
+function setTargetsToBlank() {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
         var link = links[i];
         link.setAttribute("target", "_blank");
     }
 }
 </script>
 
+<script>
+function setLinkTitleToHostName() {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        var url = links[i].getAttribute("href");
+        var hostname = getHostName(url);
+        var titleDescription = "Go to "
+        if (hostname == null) { titleDescription += "website";} 
+        else {titleDescription += hostname;}
+        links[i].setAttribute("title", titleDescription);
+    }
+}
+</script>
+
+<script>
+function getHostName(url) {
+    var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+    if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    return match[2];
+    }
+    else {
+        return null;
+    }
+}
+</script>
+
+
+<!--
+<script> function testFunction() {
+    document.getElementById("testParagraph").innerHTML="Test passed";
+}
+</script>
+-->
+
 </head>
 
 <body>
-<script>setTargetToBlank();</script>
+
+<!-- Test section -->
+<!--
+<div>
+<p id="testParagraph">Test failed.</p>
+-->
 
 <!-- Title -->
-<div>
-<h1>Critically endangered animals of China</h1>
+<div class="title">
+<h1>Critically endangered animals of North America</h1>
 </div>
 
 <!-- Table of content -->
@@ -39,45 +83,54 @@ function setTargetToBlank() {
 </div>
 
 <!-- Introduction -->
-<div>
+<div class="text">
 <h2>Introduction</h2>
-<p>World-wide there are <q>16,306 endangered species threatened with extinction</q>, according to <a href="http://www.endangeredearth.com" title="endangeredearth.com" target=>endangeredearth.com</a>.  </p>
+<p>
+According to <abbr title="International Union for Conservation of Nature">IUCN</abbr>, more than 26,000 species are threatened with extinction world-wide and of 512 are animals found in North-America. This page looks at three animals and looks at their status now. But first, what criteriae must a species meet to be classified as being endangered? According to <a href="https://www.britannica.com/story/what-makes-a-species-endangered">Britannica.com</a>, <q>an endangered species is one that meets any one of the following criteria: a 50–70% population decrease over 10 years, a total geographic area less than 5,000 km2 (or local population area less than 500 km<sup>2</sup>), a population size less than 2,500 adults, a restricted population of 250 adults, or a statistical prediction that it will go extinct within the next 20 years.</q> The following descriptions are taken from Wikipedia.com.
+</p>
 </div>
 
-<!-- Tiger -->
-<div>
-<h2>The tiger</h2>
-<p></p>
+<hr />
+
+<!-- Largetooth Sawfish -->
+<div class="text">
+<h2>The Largetooth Sawfish</h2>
+<p>
+The largetooth sawfish (Pristis pristis, syn. P. microdon and P. perotteti) is a species of sawfish, family Pristidae. It is found worldwide in tropical and subtropical coastal regions, but also enters freshwater. It has declined drastically and is considered critically endangered. <br />
+A range of English names have been used for the species, or populations now part of the species, including common sawfish (despite it being far from common today), wide sawfish, freshwater sawfish, river sawfish (less frequently, other sawfish species also occur in freshwater and rivers), Leichhardt's sawfish (after explorer and naturalist Ludwig Leichhardt) and northern sawfish.
+</p>
 </div>
 
-<!-- Panda -->
-<div>
-<h2>The panda</h2>
-<p></p>
+<hr />
+
+<!-- Vancouver Island Marmot -->
+<div class="text">
+<h2>The Vancouver Island Marmot</h2>
+<p>
+The Vancouver Island marmot (Marmota vancouverensis) naturally occurs only in the high mountains of Vancouver Island, in British Columbia. This particular marmot species is large compared to some other marmots, and most other rodents. Marmots as a group are the largest members of the squirrel family, with weights of adults varying from 3 to 7 kg depending on age and time of year.<br />
+Although endemic to Vancouver Island, Marmota vancouverensis now also resides successfully at several captive breeding centres across Canada as well as several sites on Vancouver Island at which local extinction was observed during the 1990s. This is the result of an ongoing recovery program designed to prevent extinction and restore self-sustaining wild populations of this unique Canadian species. Due to the efforts of the recovery program, the marmot count in the wild increased from less than 30 wild marmots in 2003, to an estimated 250-300 in 2015.
+</p>
 </div>
 
-<!-- Red panda -->
-<div>
-<h2>The red panda</h2>
-<p></p>
-</div>
+<hr />
 
-<!-- Other animals -->
-<div>
-<h2>Other animals</h2>
-<p></p>
-</div>
-
-<!-- The future -->
-<div>
-<h2>The future endangered animals</h2>
-<p></p>
+<!-- Palila -->
+<div class="text">
+<h2>The Palila</h2>
+<p>
+The palila (Loxioides bailleui) is a critically endangered finch-billed species of Hawaiian honeycreeper. It has a golden-yellow head and breast, with a light belly, gray back, and greenish wings and tail. The bird has a close ecological relationship with the māmane tree (Sophora chrysophylla), and became endangered due to destruction of the trees and accompanying dry forests. The first specimen of the palila was collected in 1876 at the Greenwell Ranch on the Big Island by Pierre Étienne Théodore Ballieu (1828–1885), who was French consul in Hawai‘i from 1869 to 1878. The type specimen (No. 1876-645) is housed at the Muséum national d'Histoire naturelle in Paris.
+</p>
 </div>
 
 <!-- Footer -->
 <div>
 <p></p>
 </div>
+
+
+<!-- <script>testFunction();</script> -->
+<script>setTargetsToBlank();</script>
+<script>setLinkTitleToHostName();</script>
 
 </body>
 </html>
